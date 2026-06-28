@@ -1,24 +1,64 @@
-# Portfolio
+# Portfolio Website
 
-Source code for my personal portfolio website, built with React, Vite, and Tailwind CSS.
+My personal portfolio — designed in Figma and built from scratch with React. Focused on a clean, responsive, and accessible experience.
 
-🔗 **Live:** [portfolio-website-chi-ruby.vercel.app](https://portfolio-website-chi-ruby.vercel.app)
+🔗 **Live site:** [portfolio-website-chi-ruby.vercel.app](https://portfolio-website-chi-ruby.vercel.app)
 
-## Development
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
+![MUI](https://img.shields.io/badge/MUI-007FFF?logo=mui&logoColor=white)
+
+## Features
+
+- **Fully responsive** layout across mobile, tablet, and desktop
+- **Hero** — introduction with quick access to my resume and email
+- **About** — experience with an expandable *View More* drawer, plus education and certifications
+- **Projects** — an interactive carousel with detailed case-study modals
+- **Skills** — my front-end and UI/UX toolset
+- **Connect** — direct links to my socials
+
+## Tech Stack
+
+| Area | Tools |
+| --- | --- |
+| Framework | React 19 + Vite |
+| Styling | Tailwind CSS |
+| Components | Material UI (Modal, Drawer) |
+| Deployment | Vercel |
+
+## Getting Started
 
 ```bash
-npm install        # install dependencies
-npm run dev        # start the dev server
-npm run build      # production build
-npm run preview    # preview the production build
-npm run lint       # run ESLint
+# install dependencies
+npm install
+
+# start the development server
+npm run dev
+
+# create a production build
+npm run build
+
+# preview the production build
+npm run preview
+
+# run eslint
+npm run lint
 ```
 
-## Structure
+## Project Structure
 
-- `src/components/` — UI sections (Navbar, Hero, About, Projects, Skills, Connect)
-- `src/data/` — content data (projects, experience, skills, socials)
-- `src/hooks/` — reusable hooks
-- `public/` — images, gifs, and the resume PDF
+```
+portfolio/
+├── public/             # static assets (images, gifs, resume)
+└── src/
+    ├── components/      # Navbar, Hero, About, Projects, Skills, Connect, Button
+    ├── data/           # content — projects, experience, skills, socials
+    ├── hooks/          # reusable hooks (useHeightThreshold)
+    ├── App.jsx
+    └── main.jsx
+```
 
-See the [repository README](../README.md) for the full overview.
+---
+
+<sub>Designed & developed by Jasmin Ivy Fedilo.</sub>
