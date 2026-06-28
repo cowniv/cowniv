@@ -1,7 +1,6 @@
-/* Media query for screen sizes between 1024px and 1250px */
+/* Nudge the hero down on mid-size desktop screens */
 @media (min-width: 1024px) and (max-width: 1400px) {
-    /* Add your styles here */
-    .hero {
-        margin-top: 80px;
-    }
+  .hero {
+    margin-top: 80px;
   }
+}

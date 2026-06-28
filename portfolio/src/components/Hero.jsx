@@ -1,26 +1,8 @@
-import { useState, useEffect } from "react";
 import Button from './Button'
+import useHeightThreshold from '../hooks/useHeightThreshold'
 
 const Hero = () => {
-    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-    const [heightThreshold, setHeightThreshold] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowHeight(window.innerHeight);
-        };
-    
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    useEffect(() => {
-        if (windowHeight > 913) {
-            setHeightThreshold(true);
-        } else {
-            setHeightThreshold(false);
-        }
-    }, [windowHeight]);
+    const heightThreshold = useHeightThreshold(913)
 
     const handleScrollToFooter = () => {
         window.scrollTo({
@@ -120,16 +102,16 @@ const Hero = () => {
                 <img src="images/hero.png" className='w-[80px] h-[80px] rounded-full' alt="Profile" />  
                 <div className='flex flex-col'>
                     <h1 className='dm-serif-display-regular-italic text-2xl text-blueSecondary'>Jasmin Ivy C. Fedilo</h1>
-                    <p className='font-DM-text text-md text-lightGray'>UI/UX Designer</p>
+                    <p className='font-DM-text text-base text-lightGray'>UI/UX Designer</p>
                 </div>
             </div>
             
             {/* Description */}
             <div>
-                <p className='text-lightGray dm-sans-text-regular text-md mb-5'>
+                <p className='text-lightGray dm-sans-text-regular text-base mb-5'>
                 Sophomore at <span className='dm-sans-text-500-italic'>Polytechnic University of the Philippines (PUP)</span> pursuing a <span className='dm-sans-text-500-italic'>BS in Computer Engineering</span> with a strong foundation in Python.
                 </p>
-                <p className='text-lightGray dm-sans-text-regular text-md'>
+                <p className='text-lightGray dm-sans-text-regular text-base'>
                 As an aspiring front-end web developer, I'm passionate about crafting intuitive and visually appealing user interfaces. I'm currently honing my skills in UI/UX design while actively exploring additional programming languages to broaden my technical expertise. I'm committed to continuous learning and growth, eager to apply my technical knowledge and creative mindset to contribute to innovative projects and drive exceptional digital experiences.
                 </p>
 
@@ -181,24 +163,24 @@ const Hero = () => {
             <div className='relative w-[65%] flex flex-col hero'>
                 <div className='flex px-[57px] flex-col justify-center h-full'>
                     {/* Header */}
-                    <div className='flex gap-6 items-center mb-[22px]'>
+                    <div className='flex gap-5 items-center mb-8'>
                         <div>
-                            <img src="images/hero.png" className='w-[100px] h-[100px] object-cover' alt="" />  
+                            <img src="images/hero.png" className='w-[88px] h-[88px] object-cover' alt="" />  
                         </div>
                         <div className='flex flex-col'>
-                            <h1 className='dm-serif-display-regular-italic text-[40px] text-blueSecondary'>Jasmin Ivy Fedilo</h1>
-                            <p className='font-DM-text text-[26px] text-lightGray'>UI/UX Designer</p>
+                            <h1 className='dm-serif-display-regular-italic text-[32px] text-blueSecondary'>Jasmin Ivy Fedilo</h1>
+                            <p className='font-DM-text text-[18px] text-lightGray'>UI/UX Designer</p>
                         </div>
                     </div>
 
                     {/* Description */}
                     <div>
-                        <p className='text-lightGray dm-sans-text-regular text-2xl mb-10'>Sophomore at <span className='dm-sans-text-500-italic'>Polytechnic University of the Philippines (PUP)</span> pursuing a <span className='dm-sans-text-500-italic'>BS in Computer Engineering </span> with a strong foundation in Python.</p>
-                        <p className='text-lightGray dm-sans-text-regular text-2xl'>As an aspiring front-end web developer, I'm passionate about crafting intuitive and visually appealing user interfaces. I'm currently honing my skills in UI/UX design while actively exploring additional programming languages to broaden my technical expertise. I'm committed to continuous learning and growth, eager to apply my technical knowledge and creative mindset to contribute to innovative projects and drive exceptional digital experiences.</p>
+                        <p className='text-lightGray dm-sans-text-regular text-lg line-height-28 mb-6'>Sophomore at <span className='dm-sans-text-500-italic'>Polytechnic University of the Philippines (PUP)</span> pursuing a <span className='dm-sans-text-500-italic'>BS in Computer Engineering </span> with a strong foundation in Python.</p>
+                        <p className='text-lightGray dm-sans-text-regular text-lg line-height-28'>As an aspiring front-end web developer, I'm passionate about crafting intuitive and visually appealing user interfaces. I'm currently honing my skills in UI/UX design while actively exploring additional programming languages to broaden my technical expertise. I'm committed to continuous learning and growth, eager to apply my technical knowledge and creative mindset to contribute to innovative projects and drive exceptional digital experiences.</p>
 
                         {/* Buttons */}
                         <div className='flex gap-[14px] mt-[33px]'>
-                            <Button variant='primary' className={'text-2xl'}>
+                            <Button variant='primary' className={'text-lg'}>
                             <a 
                                 href="/JasminFediloCV.pdf" 
                                 download="JasminFediloCV.pdf" 
@@ -207,7 +189,7 @@ const Hero = () => {
                                 Resume
                             </a>
                             </Button>
-                            <Button variant='secondary' className='text-2xl'>
+                            <Button variant='secondary' className='text-lg'>
                                 <a
                                     href="https://mail.google.com/mail/?view=cm&fs=1&to=jasminfedilo.pup@gmail.com"
                                     target="_blank"
@@ -223,7 +205,7 @@ const Hero = () => {
                 <div className={`min-h-max ${heightThreshold ? 'h-[175px]' : 'h-[100px]'} bg-white w-full py-[10px]`}>
                     <div className='h-full justify-center items-center w-full'>
                         <div className='w-full flex items-center justify-end pr-[40px] h-full'>
-                            <div className='dm-sans-text-italic text-lightGray text-xl w-[226px]'>Want to collaborate or just say hi? Reach out!</div>
+                            <div className='dm-sans-text-italic text-lightGray text-base w-[226px]'>Want to collaborate or just say hi? Reach out!</div>
                             <div className={`border border-lightGray ${heightThreshold ? 'h-[125px]' : 'h-[60px]'} w-[1px] mr-[40px] ml-[10px]`}/>
                             <div  onClick={handleScrollToFooter} className='border rounded-full border-lightGray w-[39px] h-[39px] cursor-pointer justify-center flex items-center hover:bg-primary hover:scale-125 transition-transform'>
                                 <img src="/images/arrow_forward.png" alt="" className='text-black' />

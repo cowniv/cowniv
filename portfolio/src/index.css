@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+/* Font helpers (DM Serif Display / DM Sans) */
 .dm-serif-display-regular {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
@@ -10,39 +11,28 @@
 }
 
 .dm-serif-display-regular-italic {
-  /* color: #57808E; */
   font-family: "DM Serif Display";
-  /* font-size: 40px; */
   font-style: italic;
   font-weight: 400;
   line-height: normal;
 }
 
-
-
-
 .dm-sans-text-regular {
-  /* color: #7C7C7C; */
   font-family: "DM Sans";
-  /* font-size: 24px; */
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .dm-sans-text-500 {
-  /* color: #7C7C7C; */
   font-family: "DM Sans";
-  /* font-size: 24px; */
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
 .dm-sans-text-500-italic {
-  /* color: #7C7C7C; */
   font-family: "DM Sans";
-  /* font-size: 24px; */
   font-style: italic;
   font-weight: 500;
   line-height: normal;
@@ -69,13 +59,18 @@
   font-style: italic;
 }
 
+
+/* Project cards */
 .project-shadow {
-    /* border-radius: 16px; */
-    /* background: url(<path-to-image>) lightgray 50% / cover no-repeat; */
-    box-shadow: 12px 12px 24px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 12px 12px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+.project-gradient {
+  background: linear-gradient(227deg, rgba(217, 217, 217, 0.00) 26.07%, #2F4C70 100%);
 }
 
 
+/* Line-height helpers */
 .line-height-40 {
   line-height: 40px;
 }
@@ -89,34 +84,12 @@
 }
 
 
-/* border */
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.box {
-  border: 2px solid blue;  /* Blue border */
-  padding: 20px;
-  position: relative;
-}
-
-.connector {
-  position: absolute;
-  width: 2px;
-  height: 100px;
-  background: blue;
-  left: 50%;
-  top: 100%;
-}
-
 .text-shadow-blue {
   text-shadow: 12px 12px 24px #2F4C70;
 }
 
-/* Apply to the container you want to scroll */
+
+/* Custom scrollbar */
 .scroll-container {
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
@@ -142,8 +115,15 @@
   background: #777;
 }
 
-.project-gradient {
-  background: linear-gradient(227deg, rgba(217, 217, 217, 0.00) 26.07%, #2F4C70 100%);
+
+/* Hide scrollbar (used by the projects carousel) */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 

@@ -1,29 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [heightThreshold, setHeightThreshold] = useState(false);
-
-  useEffect(() => {
-      const handleResize = () => {
-          setWindowHeight(window.innerHeight);
-      };
-  
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-      if (windowHeight > 900) {
-          setHeightThreshold(true);
-      } else {
-          setHeightThreshold(false);
-      }
-  }, [windowHeight]);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,15 +53,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${heightThreshold ? 'fixed' : 'fixed'}  top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'} py-5`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'} py-5`}>
       {/* Desktop */}
       <div className={`w-full hidden ${isScrolled ? 'h-[30px]' : ''} lg:flex justify-between items-center px-9 transition-transform`}>
         {/* Left side - Logo */}
-        <div className={`text-[40px] ${isScrolled ? 'text-lightGray' : 'text-white'} dm-serif-display-regular-italic`}>
+        <div className={`text-[32px] ${isScrolled ? 'text-lightGray' : 'text-white'} dm-serif-display-regular-italic`}>
           Minsel
         </div> 
         {/* Right side - Navigation links */}
-        <div className="w-1/2 flex justify-end gap-[57px] font-light pr-9 dm-sans-text-regular text-[24px]">
+        <div className="w-1/2 flex justify-end gap-[57px] font-light pr-9 dm-sans-text-regular text-[18px]">
           <a 
             href="#hero" 
             onClick={(e) => {

@@ -1,3 +1,5 @@
+import typography from '@tailwindcss/typography'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -19,11 +21,10 @@ export default {
         page: '1440px'
       },
       fontFamily: {
-        'DM-header': ['DM Serif Display', 'serif'],
         'DM-text': ["DM Sans", 'sans-serif']
       }
     },
   },
-  plugins: [require('@tailwindcss/typography'),],
+  plugins: [typography],
 }
 

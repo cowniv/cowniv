@@ -1,51 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import useHeightThreshold from '../hooks/useHeightThreshold'
+import { skills } from '../data/skills'
 
 const Skills = () => {
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [heightThreshold, setHeightThreshold] = useState(false);
-
-  useEffect(() => {
-      const handleResize = () => {
-          setWindowHeight(window.innerHeight);
-      };
-  
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-      if (windowHeight > 913) {
-          setHeightThreshold(true);
-      } else {
-          setHeightThreshold(false);
-      }
-  }, [windowHeight]);
-
-
-
-  const skills = [
-    {
-      title: 'Frontend Development',
-      items: [
-        'Languages: Python, JavaScript',
-        'Frameworks: React, Tailwind, MUI',
-        'Versioning: Git, GitHub',
-        'Database: MySQL, SQLite',
-        'Concepts: OOP, DSA',
-        'Tools: VS Code'
-      ]
-    },
-    {
-      title: 'UI/UX Design',
-      items: [
-        'Wireframing: Figma',
-        'Components: Design Systems',
-        'Accessibility: Responsive Design',
-        'Principles: UCD, Design Thinking'
-      ]
-    },
-  ]
-
+  const heightThreshold = useHeightThreshold(913)
 
   return (
     <div className='h-max w-full bg-primary max-w-[2700px] mx-auto'>
@@ -65,7 +22,7 @@ const Skills = () => {
           <div className='w-1/2 bg-white py-[104px] px-[64px] relative'>
             <img src="/images/“.png" alt="" className='absolute top-[61px] left-[64px]' />
             <img src="/images/”.png" alt="" className='absolute bottom-[61px] right-[64px]'/>
-            <p className='text-[24px] text-lightGray dm-sans-text-regular line-height-40'>
+            <p className='text-[18px] text-lightGray dm-sans-text-regular line-height-28'>
             I love turning ideas into interactive experiences. Whether it's crafting intuitive UI designs in Figma or building smooth, responsive interfaces with React.js, I always aim to make things both functional and visually engaging. I’m also a firm believer in continuous learning—there’s always a new tool, framework, or concept to explore, and that’s what keeps me excited about tech!
             </p>
           </div>
@@ -80,7 +37,7 @@ const Skills = () => {
             {skills.map((skill, idx) => (
               <div key={idx} className="mt-10">
                 <div className={`${heightThreshold ? 'h-20' : 'h-30'}`}>
-                  <h1 className='text-[40px] text-blueSecondary dm-serif-display-regular-italic mb-5'>{skill.title}</h1>
+                  <h1 className='text-[32px] text-blueSecondary dm-serif-display-regular-italic mb-5'>{skill.title}</h1>
                 </div>
                 <div className='flex flex-col justify-between w-[70%]'>
                   {skill.items.map((item, index) => (
@@ -88,7 +45,7 @@ const Skills = () => {
                       <div className='flex-[0.1] bg-bluePrimary rounded-full w-4 h-4'>
                         <img src="/images/check_small.png" alt="Check" className='object-contain w-full h-full' />
                       </div>
-                      <p className='flex-[0.9] text-[24px] dm-sans-text-regular text-lightGray'>{item}</p>
+                      <p className='flex-[0.9] text-[18px] dm-sans-text-regular text-lightGray'>{item}</p>
                     </div>
                   ))}
                 </div>
