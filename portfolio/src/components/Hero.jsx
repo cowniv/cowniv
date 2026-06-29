@@ -51,8 +51,8 @@ const Hero = () => {
                 <div className='flex gap-2 mt-6'>
                     <Button variant='primary' className={'px-[15px] text-[12px] rounded-full'}>
                     <a 
-                        href="/JasminFediloCV.pdf" 
-                        download="JasminFediloCV.pdf" 
+                        href="/FEDILO%20ResumeCV%20'26.pdf"
+                        download="FEDILO ResumeCV '26.pdf"
                         className="block w-full h-full text-center"
                     >
                         Resume
@@ -119,8 +119,8 @@ const Hero = () => {
                 <div className='flex gap-[14px] mt-6'>
                 <Button variant='primary' className={'px-[15px] text-[16px] rounded-full'}>
                     <a 
-                        href="/JasminFediloCV.pdf" 
-                        download="JasminFediloCV.pdf" 
+                        href="/FEDILO%20ResumeCV%20'26.pdf"
+                        download="FEDILO ResumeCV '26.pdf"
                         className="block w-full h-full text-center"
                     >
                         Resume
@@ -182,8 +182,8 @@ const Hero = () => {
                         <div className='flex gap-[14px] mt-[33px]'>
                             <Button variant='primary' className={'text-lg'}>
                             <a 
-                                href="/JasminFediloCV.pdf" 
-                                download="JasminFediloCV.pdf" 
+                                href="/FEDILO%20ResumeCV%20'26.pdf"
+                                download="FEDILO ResumeCV '26.pdf" 
                                 className="block w-full h-full text-center"
                             >
                                 Resume

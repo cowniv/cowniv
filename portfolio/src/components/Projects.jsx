@@ -58,7 +58,7 @@ const Projects = () => {
             onScroll={handleScroll}
             className='grid grid-rows-2 grid-flow-col auto-cols-max gap-x-[24px] lg:gap-x-[40px] gap-y-6 lg:gap-y-[40px] overflow-x-auto hide-scrollbar scroll-smooth pt-4 pb-10 px-2'
           >
-            {projects.map((project, index) => (
+            {projects.filter((project) => !project.hidden).map((project, index) => (
               <div
                 key={index}
                 onClick={() => handleProject(project)}

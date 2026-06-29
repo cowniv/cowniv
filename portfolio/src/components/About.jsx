@@ -26,7 +26,7 @@ const About = () => {
       {/* Desktop */}
       <div className='hidden lg:flex w-full bg-primary justify-center relative'>
         {/* Certifications and Education */}
-        <div className='h-full bg-white w-[35%] px-[39px] pt-[51px] pb-[58px]'>
+        <div className='self-stretch bg-white w-[35%] px-[39px] pt-[51px] pb-[58px]'>
           {/* Certifications */}
           <div className='flex flex-col'>
             <h1 className='dm-serif-display-regular-italic text-blueSecondary text-[32px] mb-[9px]'>Certifications</h1>

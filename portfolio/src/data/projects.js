@@ -28,6 +28,8 @@ export const projects = [
       ]
     },
     {
+      // Temporarily hidden from the website (code kept for later).
+      hidden: true,
       title: 'Proyekto',
       description: `
       <div>
