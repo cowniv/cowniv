@@ -3,6 +3,7 @@ import Button from './Button'
 import Drawer from '@mui/material/Drawer';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Reveal from './Reveal'
 import { certs, educs, exps } from '../data/about'
 
 
@@ -28,7 +29,7 @@ const About = () => {
         {/* Certifications and Education */}
         <div className='self-stretch bg-white w-[35%] px-[39px] pt-[51px] pb-[58px]'>
           {/* Certifications */}
-          <div className='flex flex-col'>
+          <Reveal variant='left' className='flex flex-col'>
             <h1 className='dm-serif-display-regular-italic text-blueSecondary text-[32px] mb-[9px]'>Certifications</h1>
             <ul className='mb-[16px] list-inside list-disc'>
               {certs.map((cert, index) => (
@@ -37,10 +38,10 @@ const About = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
           {/* Education */}
-          <div className='flex flex-col mt-[51px]'>
+          <Reveal variant='left' delay={150} className='flex flex-col mt-[51px]'>
             <h1 className='dm-serif-display-regular-italic text-blueSecondary text-[32px] mb-[9px]'>Education</h1>
             <div className='mb-[16px] list-inside list-disc'>
               {educs.map((educ, index) => (
@@ -61,18 +62,18 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Experience */}
         <div className='w-[65%] relative min-h-full h-max pt-[51px] pl-[61px] pr-[56px] flex-1'>
           <div className='flex flex-col'>
-            <h1 className='dm-serif-display-regular-italic text-blueSecondary text-[32px] mb-[16px]'>Experience</h1>
+            <Reveal as='h1' variant='right' className='dm-serif-display-regular-italic text-blueSecondary text-[32px] mb-[16px]'>Experience</Reveal>
             <div>
             {exps.slice(0, 2).map((exp, index) => (
-              <div key={index}>
+              <Reveal key={index} delay={index * 140}>
                 <div className='border border-lightGray'/>
-                <div key={index} className='flex flex-col pt-[7px] pb-[12px]'>
+                <div className='flex flex-col pt-[7px] pb-[12px]'>
                   <div className='dm-sans-text-bold text-[18px] text-blueSecondary'>
                     {exp.title}
                   </div>
@@ -87,17 +88,17 @@ const About = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </Reveal>
             ))}
             <div className='border border-lightGray'/>
             </div>
           </div>
             {/* View more button */}
-            <div className='flex justify-center mt-10 mb-[51px]'>
+            <Reveal className='flex justify-center mt-10 mb-[51px]'>
               <Button onClick={toggleDrawer} variant={'primary'} className={'w-[200px] flex justify-center text-lg text-nowrap'}>
                 View More
               </Button>
-            </div>
+            </Reveal>
         </div>
       </div>
 

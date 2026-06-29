@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+/* Prevent transient horizontal scroll from edge reveal animations.
+   The projects carousel scrolls inside its own container, so this is safe. */
+body {
+  overflow-x: hidden;
+}
+
+
 /* Font helpers (DM Serif Display / DM Sans) */
 .dm-serif-display-regular {
   font-family: "DM Serif Display", serif;
@@ -129,4 +136,68 @@
 
 .prose strong {
   color: #7C7C7C;
+}
+
+
+/* ===================================================================== */
+/* Motion system — scroll reveals + ambient "living museum" animations.  */
+/* Everything here is disabled under prefers-reduced-motion: reduce so   */
+/* the page is fully static (and never hidden) for motion-sensitive users.*/
+/* ===================================================================== */
+
+/* Scroll reveal — driven by the useReveal hook / <Reveal> component.
+   Elements start shifted + transparent, then ease into place when in view. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-left  { transform: translateX(-40px); }
+  .reveal-right { transform: translateX(40px); }
+  .reveal-scale { transform: scale(0.94); }
+  .reveal-fade  { transform: none; }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Opacity-only fade for elements that already animate their own transform
+     (e.g. project cards with hover:scale) so the hover effect stays intact. */
+  .reveal-card {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.3s ease;
+  }
+  .reveal-card.is-visible {
+    opacity: 1;
+  }
+}
+
+/* Ambient continuous motion — gentle, looping, never distracting. */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes kenburns {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+@keyframes portrait-glow {
+  0%, 100% { filter: drop-shadow(0 6px 14px rgba(87, 128, 142, 0.22)); }
+  50%      { filter: drop-shadow(0 12px 28px rgba(87, 128, 142, 0.45)); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .float-soft { animation: float-soft 7s ease-in-out infinite; }
+  .float-slow { animation: float-slow 9s ease-in-out infinite; }
+  .kenburns   { animation: kenburns 20s ease-in-out infinite alternate; }
+  .portrait   { animation: portrait-glow 5s ease-in-out infinite,
+                           float-soft 7s ease-in-out infinite; }
 }

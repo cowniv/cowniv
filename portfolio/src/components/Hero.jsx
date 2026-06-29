@@ -1,4 +1,5 @@
 import Button from './Button'
+import Reveal from './Reveal'
 import useHeightThreshold from '../hooks/useHeightThreshold'
 
 const Hero = () => {
@@ -17,10 +18,10 @@ const Hero = () => {
         {/* Mobile */}
         <div className='md:hidden h-full flex flex-col w-full'>
             {/* Banner with Minsel overlay */}
-            <div className='w-full h-[175px] bg-blue-500 relative'>
-            <img 
-                src="/images/hero-banner.png" 
-                className='h-full w-full object-cover' 
+            <div className='w-full h-[175px] bg-blue-500 relative overflow-hidden'>
+            <img
+                src="/images/hero-banner.png"
+                className='h-full w-full object-cover kenburns'
                 alt="Water lilies painting"
             />
             </div>
@@ -30,7 +31,7 @@ const Hero = () => {
             {/* Header */}
             <div className='flex items-center gap-4 mb-6'>
                 <div className=''>
-                    <img src="images/hero.png" className='w-[50px] h-[50px] rounded-full' alt="Profile" />  
+                    <img src="images/hero.png" className='w-[50px] h-[50px] rounded-full portrait' alt="Profile" />
                 </div>
                 <div className='flex flex-col'>
                     <h1 className='dm-serif-display-regular-italic text-[20px] text-blueSecondary'>Jasmin Ivy C. Fedilo</h1>
@@ -87,10 +88,10 @@ const Hero = () => {
         {/* Tablet */}
         <div className='hidden md:flex lg:hidden flex-col w-full'>
             {/* Banner with Minsel overlay */}
-            <div className='w-full h-[200px] bg-blue-500 relative'>
-            <img 
-                src="/images/hero-banner.png" 
-                className='h-full w-full object-cover' 
+            <div className='w-full h-[200px] bg-blue-500 relative overflow-hidden'>
+            <img
+                src="/images/hero-banner.png"
+                className='h-full w-full object-cover kenburns'
                 alt="Water lilies painting"
             />
             </div>
@@ -99,7 +100,7 @@ const Hero = () => {
             <div className='w-full px-6 py-8 bg-[#f7f4f1]'>
             {/* Header */}
             <div className='flex items-center mb-6 gap-4'>
-                <img src="images/hero.png" className='w-[80px] h-[80px] rounded-full' alt="Profile" />  
+                <img src="images/hero.png" className='w-[80px] h-[80px] rounded-full portrait' alt="Profile" />
                 <div className='flex flex-col'>
                     <h1 className='dm-serif-display-regular-italic text-2xl text-blueSecondary'>Jasmin Ivy C. Fedilo</h1>
                     <p className='font-DM-text text-base text-lightGray'>UI/UX Designer</p>
@@ -155,31 +156,31 @@ const Hero = () => {
         {/* Desktop */}
         <div className={`hidden ${heightThreshold ? 'h-page' : 'h-[764px]'} w-full lg:flex mx-auto`}>
             {/* Banner */}
-            <div className='bg-red-200 w-[35%] relative'>
-                <img src="/images/hero-banner.png" className='h-full w-full contain' />
+            <div className='bg-red-200 w-[35%] relative overflow-hidden'>
+                <img src="/images/hero-banner.png" className='h-full w-full contain kenburns' />
             </div>
 
             {/* Hero */}
             <div className='relative w-[65%] flex flex-col hero'>
                 <div className='flex px-[57px] flex-col justify-center h-full'>
                     {/* Header */}
-                    <div className='flex gap-5 items-center mb-8'>
+                    <Reveal className='flex gap-5 items-center mb-8'>
                         <div>
-                            <img src="images/hero.png" className='w-[88px] h-[88px] object-cover' alt="" />  
+                            <img src="images/hero.png" className='w-[88px] h-[88px] object-cover portrait' alt="" />
                         </div>
                         <div className='flex flex-col'>
                             <h1 className='dm-serif-display-regular-italic text-[32px] text-blueSecondary'>Jasmin Ivy Fedilo</h1>
                             <p className='font-DM-text text-[18px] text-lightGray'>UI/UX Designer</p>
                         </div>
-                    </div>
+                    </Reveal>
 
                     {/* Description */}
                     <div>
-                        <p className='text-lightGray dm-sans-text-regular text-lg line-height-28 mb-6'>Sophomore at <span className='dm-sans-text-500-italic'>Polytechnic University of the Philippines (PUP)</span> pursuing a <span className='dm-sans-text-500-italic'>BS in Computer Engineering </span> with a strong foundation in Python.</p>
-                        <p className='text-lightGray dm-sans-text-regular text-lg line-height-28'>As an aspiring front-end web developer, I'm passionate about crafting intuitive and visually appealing user interfaces. I'm currently honing my skills in UI/UX design while actively exploring additional programming languages to broaden my technical expertise. I'm committed to continuous learning and growth, eager to apply my technical knowledge and creative mindset to contribute to innovative projects and drive exceptional digital experiences.</p>
+                        <Reveal as='p' delay={120} className='text-lightGray dm-sans-text-regular text-lg line-height-28 mb-6'>Sophomore at <span className='dm-sans-text-500-italic'>Polytechnic University of the Philippines (PUP)</span> pursuing a <span className='dm-sans-text-500-italic'>BS in Computer Engineering </span> with a strong foundation in Python.</Reveal>
+                        <Reveal as='p' delay={220} className='text-lightGray dm-sans-text-regular text-lg line-height-28'>As an aspiring front-end web developer, I'm passionate about crafting intuitive and visually appealing user interfaces. I'm currently honing my skills in UI/UX design while actively exploring additional programming languages to broaden my technical expertise. I'm committed to continuous learning and growth, eager to apply my technical knowledge and creative mindset to contribute to innovative projects and drive exceptional digital experiences.</Reveal>
 
                         {/* Buttons */}
-                        <div className='flex gap-[14px] mt-[33px]'>
+                        <Reveal delay={340} className='flex gap-[14px] mt-[33px]'>
                             <Button variant='primary' className={'text-lg'}>
                             <a 
                                 href="/FEDILO%20ResumeCV%20'26.pdf"
@@ -198,7 +199,7 @@ const Hero = () => {
                                     Email
                                 </a>
                             </Button>
-                        </div>
+                        </Reveal>
                     </div>
                 </div>
                 

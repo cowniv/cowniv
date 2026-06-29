@@ -2,6 +2,8 @@ import { useState, useRef } from 'react'
 import Button from './Button'
 import Modal from '@mui/material/Modal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Reveal from './Reveal'
+import useReveal from '../hooks/useReveal'
 import { projects } from '../data/projects'
 
 const Projects = () => {
@@ -12,6 +14,7 @@ const Projects = () => {
     image: ''
   });
   const trackRef = useRef(null);
+  const [carouselRef, carouselInView] = useReveal({ threshold: 0.1 });
   const [activeDot, setActiveDot] = useState(0);
   const handleOpen = () => setOpen(true);
 
@@ -48,10 +51,10 @@ const Projects = () => {
   return (
     <div className='relative flex justify-center items-center bg-bluePrimary'>
       <div className='w-full flex flex-col justify-center px-[16px] sm:px-[32px] lg:px-[60px] pt-5 lg:pt-[56px] pb-[40px] lg:pb-[56px]'>
-        <h1 className='dm-serif-display-regular-italic text-blueSecondary text-xl sm:text-2xl lg:text-[32px] text-center'>PROJECTS</h1>
+        <Reveal as='h1' className='dm-serif-display-regular-italic text-blueSecondary text-xl sm:text-2xl lg:text-[32px] text-center'>PROJECTS</Reveal>
 
         {/* Carousel */}
-        <div className='mt-6 lg:mt-10'>
+        <div ref={carouselRef} className='mt-6 lg:mt-10'>
           {/* Track */}
           <div
             ref={trackRef}
@@ -62,7 +65,8 @@ const Projects = () => {
               <div
                 key={index}
                 onClick={() => handleProject(project)}
-                className='relative flex justify-center hover:scale-105 transition-transform cursor-pointer'
+                style={{ transitionDelay: carouselInView ? `${index * 70}ms` : '0ms' }}
+                className={`reveal-card ${carouselInView ? 'is-visible' : ''} relative flex justify-center hover:scale-105 cursor-pointer`}
               >
                 <div className='absolute h-full w-full project-gradient rounded-2xl z-10 overflow-hidden' />
                 <div className='w-[240px] h-[163px] sm:w-[260px] sm:h-[176px] lg:w-[340px] lg:h-[230px] bg-slate-500 rounded-2xl flex flex-col relative project-shadow overflow-hidden'>
