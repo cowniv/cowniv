@@ -1,3 +1,22 @@
+export const featuredCerts = [
+    {
+      name: 'Claude Certified Architect – Foundations',
+      code: 'CCAR-F',
+      issuer: 'Anthropic',
+      date: 'Jul 2026',
+      image: '/images/badges/ccar-f.png',
+      url: 'https://www.credly.com/badges/e830f44e-7b76-4d12-b062-d4ef19663223/public_url',
+    },
+    {
+      name: 'Claude Certified Developer – Foundations',
+      code: 'CCDV-F',
+      issuer: 'Anthropic',
+      date: 'Jul 2026',
+      image: '/images/badges/ccdv-f.png',
+      url: 'https://www.credly.com/badges/9a1a88de-39ac-4856-b7c5-91e7bf771e67/public_url',
+    },
+  ]
+
 export const certs = [
     'AI Fundamentals',
     'Data Literacy',

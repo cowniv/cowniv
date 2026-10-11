@@ -4,7 +4,47 @@ import Drawer from '@mui/material/Drawer';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Reveal from './Reveal'
-import { certs, educs, exps } from '../data/about'
+import { featuredCerts, certs, educs, exps } from '../data/about'
+
+// Badge-led cards for headline certifications, followed by the plain list of older ones
+const sizes = {
+  lg: { badge: 'w-[72px] h-[72px]', name: 'text-[18px]', meta: 'text-[14px]', list: 'text-[18px]' },
+  md: { badge: 'w-16 h-16', name: 'text-base', meta: 'text-[13px]', list: 'text-base' },
+  sm: { badge: 'w-14 h-14', name: 'text-sm', meta: 'text-xs', list: 'text-xs' },
+}
+
+const CertList = ({ size }) => {
+  const s = sizes[size]
+  return (
+    <>
+      <div className='flex flex-col gap-3 mb-[16px]'>
+        {featuredCerts.map((cert) => (
+          <a
+            key={cert.code}
+            href={cert.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='group flex items-center gap-4 p-3 rounded-xl border border-bluePrimary bg-primary/40 transition-colors duration-200 hover:border-blueSecondary hover:bg-bluePrimary/30'
+          >
+            <img src={cert.image} alt={`${cert.name} badge`} className={`${s.badge} shrink-0 object-contain transition-transform duration-300 group-hover:scale-105`} />
+            <div className='flex flex-col min-w-0'>
+              <span className={`dm-sans-text-bold text-blueSecondary leading-snug ${s.name}`}>{cert.name}</span>
+              <span className={`font-DM-text text-lightGray ${s.meta}`}>{cert.code} · {cert.issuer} · {cert.date}</span>
+              <span className={`font-DM-text text-blueSecondary underline-offset-2 group-hover:underline ${s.meta}`}>Verify on Credly ↗</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <ul className='mb-[16px] list-inside list-disc'>
+        {certs.map((cert, index) => (
+          <li key={index} className={`font-DM-text text-lightGray ${s.list}`}>
+            {cert}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
 
 
 const About = () => {
@@ -31,13 +71,7 @@ const About = () => {
           {/* Certifications */}
           <Reveal variant='left' className='flex flex-col'>
             <h1 className='dm-serif-display-regular-italic text-blueSecondary text-[32px] mb-[9px]'>Certifications</h1>
-            <ul className='mb-[16px] list-inside list-disc'>
-              {certs.map((cert, index) => (
-                <li key={index} className='text-[18px] font-DM-text text-lightGray'>
-                  {cert}
-                </li>
-              ))}
-            </ul>
+            <CertList size='lg' />
           </Reveal>
 
           {/* Education */}
@@ -145,13 +179,7 @@ const About = () => {
           {/* Certifications */}
           <div className='flex flex-col w-full'>
             <h1 className='dm-serif-display-regular-italic text-blueSecondary text-2xl mb-[9px]'>Certifications</h1>
-            <ul className='mb-[16px] list-inside list-disc'>
-              {certs.map((cert, index) => (
-                <li key={index} className='text-base font-DM-text text-lightGray'>
-                  {cert}
-                </li>
-              ))}
-            </ul>
+            <CertList size='md' />
           </div>
 
           {/* Education */}
@@ -222,13 +250,7 @@ const About = () => {
           {/* Certifications */}
           <div className='flex flex-col'>
             <h1 className='dm-serif-display-regular-italic text-blueSecondary text-xl mb-[9px]'>Certifications</h1>
-            <ul className='mb-[16px] list-inside list-disc'>
-              {certs.map((cert, index) => (
-                <li key={index} className='text-xs font-DM-text text-lightGray'>
-                  {cert}
-                </li>
-              ))}
-            </ul>
+            <CertList size='sm' />
           </div>
 
           {/* Education */}
